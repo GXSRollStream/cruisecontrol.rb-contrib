@@ -8,7 +8,7 @@ This is a builder plugin for "CruiseControl.rb":http://cruisecontrolrb.thoughtwo
 h1. Installation
 
 # Sign up for a campfire account that you will use for sending notifications.
-# Install the 'tinder' gem
+# Install the 'broach' gem
 # Copy campfire_notifier plugin folder to ~/.cruise/builder_plugins/
 # In your ~/.cruise/projects/<project name>/cruise_config.rb configure your room:
   <pre><code>
