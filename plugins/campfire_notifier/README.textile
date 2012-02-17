@@ -10,25 +10,13 @@ h1. Installation
 # Sign up for a campfire account that you will use for sending notifications.
 # Install the 'tinder' gem
 # Copy campfire_notifier plugin folder to ~/.cruise/builder_plugins/
-# Create ~/.cruise/campfire_notifier_plugin_settings.rb:
+# In your ~/.cruise/projects/<project name>/cruise_config.rb configure your room:
   <pre><code>
-      project.campfire_notifier.subdomain = 'cruisecontrol'
-      project.campfire_notifier.room = 'room'
-      project.campfire_notifier.username = 'user'
-      project.campfire_notifier.password = 'pass'
+  project.campfire_notifier.room = 'your room'
+  project.campfire_notifier.account = 'your account'
+  project.campfire_notifier.token = 'your token'
+  project.campfire_notifier.ssl = true
+  project.campfire_notifier.fixed_image = ':frog:'
+  project.campfire_notifier.broken_image = ':skull:'
   </code></pre>
-# Modify your project's cruise_config.rb by adding the following lines
-  <pre><code>
-    Project.configure do |project|
-      ...
-      begin
-        eval File.readlines("#{CRUISE_DATA_ROOT}/campfire_notifier_settings.rb").join
-      rescue
-        CruiseControl::Log.warn("Failed to load Campfire notifier settings")
-      end
-      ...
-    end
-  </code></pre>
-# The use of eval to read the file from cruise_config.rb prevents the token/password from being shown in the cruise UI
-# You can also specify your Campfire API token as the username, and leave the password empty.
 # Start cruisecontrol
